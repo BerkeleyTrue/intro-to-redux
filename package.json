@@ -1,13 +1,19 @@
 {
-  "name": "React-Redux-and-RxJS",
+  "name": "berkeley-spectacle-boilerplate",
   "version": "0.0.1",
-  "description": "Redux-and-RxJS-equals-party-parrot",
+  "description": "Berkeleys magical Spectacle.js boilerplate",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BerkeleyTrue/berkeleys-spectacle-boilerplate.git"
+  },
   "scripts": {
     "clean": "rimraf dist",
+    "prebuild": "NODE_ENV=production node build-production-html",
     "build": "NODE_ENV=production webpack --config webpack.config.production.js",
     "lint": "eslint --ext .js,.jsx .",
-    "deploy": "npm run clean && npm run build && cp gh-pages.index.html dist/index.html && node gh-pages",
+    "predeploy": "npm run clean && npm run build",
+    "deploy": "node gh-pages",
     "start": "NODE_ENV=development node server.js"
   },
   "author": "Berkeley Martinez <Berkeley@RoboTie.com> (http://RoboTie.com)",

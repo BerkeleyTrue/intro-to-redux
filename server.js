@@ -1,14 +1,12 @@
-/* eslint-disable */
+const express = require('express');
+const webpack = require('webpack');
+const config = require('./webpack.config');
+const { title } = require('./slide-info');
+const htmlTemplate = require('./html-template');
 
-var path = require('path');
-var express = require('express');
-var webpack = require('webpack');
-var config = require('./webpack.config');
-
-var app = express();
-var compiler = webpack(config);
-
-var serverPort = process.env.PORT || 3000;
+const app = express();
+const compiler = webpack(config);
+const serverPort = process.env.PORT || 3000;
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
@@ -18,14 +16,11 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.use(require('webpack-hot-middleware')(compiler));
 
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.send(htmlTemplate({ title }));
 });
 
-app.listen(serverPort, 'localhost', function (err) {
-  if (err) {
-    console.log(err);
-    return;
-  }
+app.listen(serverPort, 'localhost', function(err) {
+  if (err) { throw err; }
 
   console.log('Listening at http://localhost:' + serverPort);
 });
