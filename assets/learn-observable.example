@@ -1,0 +1,24 @@
+function Observable(observer) {
+  const ds = new CreateDatabaseConnection();
+  ds.ondata = (e) => observer.next(e);
+  ds.onerror = (err) => observer.error(err);
+  ds.oncomplete = () => observer.complete();
+  return () => {
+    ds.disconnectAndDestroy();
+  };
+}
+
+const observer = {
+  next(x) { console.log(`I got an ${x}!`); },
+  error(err) { console.error('Error!', err); },
+  complete() { console.log('done!'); }
+};
+
+const cancel = Observable(observer);
+
+setTimeout(
+  () => {
+    cancel();
+  },
+  5000
+);
