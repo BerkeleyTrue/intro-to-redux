@@ -20,6 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "gh-pages": "^0.11.0",
+    "json-loader": "^0.5.4",
     "normalize.css": "3.0.3",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
@@ -41,6 +42,7 @@
     "eslint": "^1.8.0",
     "eslint-config-defaults": "^7.1.1",
     "eslint-plugin-filenames": "^0.1.2",
+    "eslint-plugin-import": "^1.15.0",
     "eslint-plugin-react": "^3.6.3",
     "express": "^4.13.3",
     "file-loader": "^0.8.4",
