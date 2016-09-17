@@ -1,0 +1,33 @@
+import { combineReducers } from 'redux';
+
+const initialCount = 0;
+function countReducer(count = initialCount, action) {
+  if (action.type === 'INC') {
+    return count + 1;
+  }
+  if (action.type === 'DEC') {
+    return count - 1;
+  }
+
+  return count;
+}
+
+const initialModalState = { showModal: false };
+function modalReducer(state = initialModalState, action) {
+  if (action.type === 'OPEN_MODAL') {
+    return Object.assign({}, state, {
+      showModal: true
+    });
+  }
+  return state;
+}
+
+// state now looks like
+// {
+//   count: Number,
+//   modal: { showModal: Boolean }
+// }
+export default combineReducers({
+  count: countReducer,
+  modal: modalReducer
+});
