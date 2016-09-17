@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import dedent from 'dedent';
 import {
@@ -426,6 +427,159 @@ export default class Presentation extends React.Component {
               { loc: [ 4, 5 ] },
               { loc: [ 5, 9 ] },
               { loc: [ 10, 12 ] }
+            ]}
+            transition={ [] }
+          />
+          <Slide>
+            <Heading>
+              What about React?
+            </Heading>
+            <List>
+              <ListItem>
+                `connect` connects redux to react components
+              </ListItem>
+              <ListItem>
+                `Provider` injects store into react app
+              </ListItem>
+            </List>
+          </Slide>
+          <Slide>
+            <Heading>
+              connect
+            </Heading>
+            <List>
+              <Link
+                href='https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options'
+                >
+                <ListItem>
+                  mapStateToProps
+                </ListItem>
+                <ListItem>
+                  mapDispatchToProps
+                </ListItem>
+                <ListItem>
+                  connect is a function that returns another function
+                </ListItem>
+                <ListItem>
+                  pass in your component
+                </ListItem>
+                <ListItem>
+                  HOC power
+                </ListItem>
+              </Link>
+            </List>
+          </Slide>
+          <Slide>
+            <Heading>
+              container/presenter pattern
+            </Heading>
+            <List>
+              <ListItem>
+                Container => All the logic
+              </ListItem>
+              <ListItem>
+                Presenter => Displays UI
+              </ListItem>
+            </List>
+          </Slide>
+          <Slide>
+            <Heading>
+              Higher Order Component
+            </Heading>
+            <List>
+              <ListItem>
+                A component that wraps another component
+              </ListItem>
+            </List>
+          </Slide>
+          <CodeSlide
+            code={ require('raw!../assets/connect.example') }
+            lang='jsx'
+            ranges={[
+              { loc: [ 0, 255], title: 'connect' },
+              { loc: [ 1, 2 ] },
+              { loc: [ 28, 32 ] },
+              { loc: [ 3, 8 ] },
+              { loc: [ 9, 14 ] },
+              { loc: [ 28, 32 ] },
+              { loc: [ 33, 34 ] },
+              { loc: [ 15, 27 ] },
+              { loc: [ 19, 20 ] },
+              { loc: [ 22, 23 ] }
+            ]}
+            transition={ [] }
+          />
+          <Slide>
+            <Heading>
+              Things to remember
+            </Heading>
+            <List>
+              <ListItem>
+                mapStateToProps must return an object
+              </ListItem>
+              <ListItem>
+                mapDispatchToProps must return an object
+              </ListItem>
+            </List>
+          </Slide>
+          <Slide>
+            <Heading>
+              Provider
+            </Heading>
+            <List>
+              <ListItem>
+                Adds store to react context
+              </ListItem>
+              <ListItem>
+                makes connect work
+              </ListItem>
+            </List>
+          </Slide>
+          <CodeSlide
+            code={ require('raw!../assets/provider.example') }
+            lang='jsx'
+            ranges={[
+              { loc: [ 0, 255], title: 'Provider' },
+              { loc: [ 0, 1] },
+              { loc: [ 2, 8 ] },
+              { loc: [ 9, 20 ] }
+            ]}
+            transition={ [] }
+          />
+          <Slide>
+            <Heading>
+              Helpers
+            </Heading>
+            <List>
+              <ListItem>
+                action creators
+              </ListItem>
+              <ListItem>
+                mapDispatchToProps object form
+              </ListItem>
+            </List>
+          </Slide>
+          <CodeSlide
+            code={dedent`
+              const openModalActionCreator = () => {
+                return { type: 'OPEN_MODAL' };
+              };
+
+              const mapDispatchToProps = {
+                openModal: openModalActionCreator
+              };
+
+              const connectComponent = connect(
+                mapStateToProps,
+                mapDispatchToProps
+              );
+            `}
+            lang='jsx'
+            ranges={[
+              { loc: [ 0, 255 ], title: 'helpers'},
+              { loc: [ 0, 3] },
+              { loc: [ 4, 7 ] },
+              { loc: [ 8, 12 ] }
             ]}
             transition={ [] }
           />

@@ -27,6 +27,7 @@ function modalReducer(state = initialModalState, action) {
 //   count: Number,
 //   modal: { showModal: Boolean }
 // }
+// combineReducers returns a plain reducer function
 export default combineReducers({
   count: countReducer,
   modal: modalReducer
