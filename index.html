@@ -1,5 +1,4 @@
-module.exports = function htmlTemplate({ title, repoName }) {
-  return `
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,7 @@ module.exports = function htmlTemplate({ title, repoName }) {
     initial-scale=1
     user-scalable=no"
   />
-  <title>${ title }</title>
+  <title>Berkeley's Intro to Redux</title>
   <style>
     a { color: none; }
   </style>
@@ -42,8 +41,7 @@ module.exports = function htmlTemplate({ title, repoName }) {
     type="text/javascript"
     >
   </script>
-  <script src="/${ repoName ? repoName : 'dist' }/bundle.js"></script>
+  <script src="/intro-to-redux/bundle.js"></script>
 </body>
 </html>
-  `;
-};
+  
