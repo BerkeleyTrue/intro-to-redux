@@ -1,11 +1,11 @@
 {
-  "name": "berkeley-spectacle-boilerplate",
+  "name": "intro-to-redux",
   "version": "0.0.1",
-  "description": "Berkeleys magical Spectacle.js boilerplate",
+  "description": "Berkeley's Intro to Redux",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BerkeleyTrue/berkeleys-spectacle-boilerplate.git"
+    "url": "https://github.com/BerkeleyTrue/intro-to-redux.git"
   },
   "scripts": {
     "clean": "rimraf dist",

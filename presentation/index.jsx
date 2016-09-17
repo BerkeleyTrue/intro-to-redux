@@ -23,7 +23,7 @@ require('spectacle/lib/themes/default/index.css');
 const images = {};
 const reactBlue = '#00d8ff';
 const theme = createTheme({
-  primary: '#222',
+  primary: '#3D5B99',
   secondary: reactBlue,
   tertiary: 'white',
   quartenary: reactBlue
@@ -104,10 +104,100 @@ export default class Presentation extends React.Component {
               </ListItem>
             </List>
           </Slide>
+          <Slide
+            transition={ [] }
+            >
+            <Heading
+              size={ 3 }
+              textColor='secondary'
+              >
+              The Basics
+            </Heading>
+            <List>
+              <List>
+                <ListItem>
+                  Actions
+                </ListItem>
+                <ListItem>
+                  Reducer
+                </ListItem>
+                <ListItem>
+                  Store
+                </ListItem>
+              </List>
+            </List>
+          </Slide>
+          <Slide>
+            <List>
+              <ListItem>
+                Concepts
+              </ListItem>
+              <List>
+                <ListItem>
+                  Dispatching
+                </ListItem>
+                <ListItem>
+                  Data Flow
+                </ListItem>
+                <ListItem>
+                  Connecting with React
+                </ListItem>
+              </List>
+            </List>
+          </Slide>
           <Slide>
             <Heading
+              fit={ true }
+              size={ 3 }
+              textColor='seconday'
+              >
+              Basics
+            </Heading>
+          </Slide>
+          <Slide>
+            <Heading>
+              Actions
+            </Heading>
+            <List>
+              <ListItem>
+                Packets of Information
+              </ListItem>
+              <ListItem>
+                POJO
+              </ListItem>
+              <List>
+                <ListItem>
+                  Type
+                </ListItem>
+              </List>
+            </List>
+          </Slide>
+          <Slide>
+            <Heading>
+              F.S.A
+            </Heading>
+            <Text>
+              Flux Standerd Action
+            </Text>
+            <List>
+              <ListItem>
+                type: String
+              </ListItem>
+              <ListItem>
+                payload: Any
+              </ListItem>
+              <ListItem>
+                error: Boolean
+              </ListItem>
+              <ListItem>
+                meta: Any
+              </ListItem>
+            </List>
+          </Slide>
+          <Slide>
+            <Heading
+              fill={ true }
               textColor='secondary'
-              textSize={ 60 }
               >
               Questions?
             </Heading>
