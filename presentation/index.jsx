@@ -165,7 +165,7 @@ export default class Presentation extends React.Component {
               <Heading>
                 Actions
               </Heading>
-              <List>
+              <List textColor='secondary'>
                 <ListItem>
                   Packets of Information
                 </ListItem>
@@ -206,7 +206,7 @@ export default class Presentation extends React.Component {
               <Heading>
                 What is the purpose of an action?
               </Heading>
-              <List>
+              <List textColor='secondary'>
                 <ListItem>
                   Describe an event
                 </ListItem>
@@ -214,7 +214,7 @@ export default class Presentation extends React.Component {
                   Can be any event
                 </ListItem>
                 <ListItem>
-                  actions can be the cause of state change
+                  Actions can be the cause of state change
                 </ListItem>
               </List>
             </Link>
@@ -233,13 +233,8 @@ export default class Presentation extends React.Component {
                 Describes how actions can effect change
               </ListItem>
               <ListItem>
-                POJF
+                Plain Old JavaScript Function (POJF)
               </ListItem>
-              <Appear>
-                <ListItem>
-                  Plain Old JavaScript Function
-                </ListItem>
-              </Appear>
               <Appear>
                 <ListItem>
                   Called in response to actions
@@ -356,7 +351,7 @@ export default class Presentation extends React.Component {
               <Heading>
                 combineReducers
               </Heading>
-              <List>
+              <List textColor='secondary'>
                 <ListItem>
                   create multiple reducers
                 </ListItem>
@@ -447,10 +442,10 @@ export default class Presentation extends React.Component {
             <Heading>
               connect
             </Heading>
-            <List>
-              <Link
-                href='https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options'
-                >
+            <Link
+              href='https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options'
+              >
+              <List textColor='secondary'>
                 <ListItem>
                   mapStateToProps
                 </ListItem>
@@ -466,8 +461,8 @@ export default class Presentation extends React.Component {
                 <ListItem>
                   HOC power
                 </ListItem>
-              </Link>
-            </List>
+              </List>
+            </Link>
           </Slide>
           <Slide>
             <Heading>
