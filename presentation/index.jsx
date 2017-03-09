@@ -252,9 +252,9 @@ export default class Presentation extends React.Component {
               // called for every action
               function myReducer(state, action) {
                 // make sure state is defined
-                state = state || { isPressed: false };
+                state = state || { count: 0 };
                 // all actions must have a type
-                if (action.type === 'CLICK_BUTTON') {
+                if (action.type === 'INC') {
                   const newState = {};
                   newState.count = state.count + 1;
                   return newState;
@@ -276,11 +276,11 @@ export default class Presentation extends React.Component {
           />
           <Slide>
             <Heading>
-              Rules of Thumb
+              General Rules
             </Heading>
             <List>
               <ListItem>
-                Never Mutate
+                Never mutate state
               </ListItem>
               <ListItem>
                 Create new state objects
@@ -289,19 +289,27 @@ export default class Presentation extends React.Component {
                 Always return state
               </ListItem>
               <ListItem>
-                Do not assume state shape
+                Do not assume the state shape
               </ListItem>
             </List>
           </Slide>
           <CodeSlide
             code={dedent`
-              // use ES2015 default params
-              const initialState = { isPressed: false, showModal: false };
+              const initialState = {
+                count: 0,
+                showModal: false
+              };
+              // using ES2015 default params
               function myReducer(state = initialState, action) {
-                if (action.type === 'CLICK_BUTTON') {
-                  // do not assume you know everthing that is on the state
+                if (action.type === 'INC') {
+                  // do not assume the state shape
                   const newState = Object.assign({}, state);
-                  newState.count = state.count + 1;
+                  newState.count= state.count + 1;
+                  return newState;
+                }
+                if (action.types === 'DEC') {
+                  const newState = Object.assign({}, state);
+                  newState.count= state.count - 1;
                   return newState;
                 }
                 if (action.type === 'SHOW_MODAL') {
@@ -309,16 +317,28 @@ export default class Presentation extends React.Component {
                     showModal: true
                   });
                 }
+                if (action.type === 'HIDE_MODAL') {
+                  // use spread operator
+                  return {
+                    ...state,
+                    showModal: false
+                  };
+                }
+                // always return state
                 return state;
               }
             `}
             lang='jsx'
             ranges={[
               { loc: [ 0, 255], title: 'Better Reducer' },
-              { loc: [ 0, 2 ] },
-              { loc: [ 2, 3 ] },
-              { loc: [ 5, 6 ] },
-              { loc: [ 9, 13 ] }
+              { loc: [ 0, 4 ] },
+              // { loc: [ 2, 3 ] },
+              { loc: [ 4, 6 ] },
+              { loc: [ 6, 12 ] },
+              { loc: [ 12, 17 ] },
+              { loc: [ 17, 22 ] },
+              { loc: [ 22, 29 ] },
+              { loc: [ 29, 31 ] }
             ]}
             transition={ [] }
           />
@@ -353,13 +373,13 @@ export default class Presentation extends React.Component {
               </Heading>
               <List textColor='secondary'>
                 <ListItem>
-                  create multiple reducers
+                  Create multiple reducers
                 </ListItem>
                 <ListItem>
-                  each representing some discreat part of your app
+                  Each representing some discrete part of your app
                 </ListItem>
                 <ListItem>
-                  produce one reducer function
+                  Produce one reducer function
                 </ListItem>
               </List>
             </Link>
@@ -405,8 +425,8 @@ export default class Presentation extends React.Component {
 
           import mainReducer from './combinedCountAndModalReducer';
 
-          const store = createStore(todoApp)
-          const unlisten = store.listen(() => {
+          const store = createStore(mainReducer);
+          const unlisten = store.subscribe(() => {
             // prints whole state on every state change
             console.log(store.getState());
           });
