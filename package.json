@@ -9,10 +9,11 @@
   },
   "scripts": {
     "clean": "rimraf dist",
+    "prebuild": "npm run clean",
     "build": "NODE_ENV=production webpack --config webpack.config.production.js",
     "postbuild": "NODE_ENV=production node build-production-html",
     "lint": "eslint --ext .js,.jsx .",
-    "predeploy": "npm run clean && npm run build",
+    "predeploy": "npm run build",
     "deploy": "node gh-pages",
     "start": "NODE_ENV=development node server.js"
   },
