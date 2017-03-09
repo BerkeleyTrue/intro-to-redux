@@ -39,7 +39,7 @@ module.exports = function htmlTemplate({ title, repoName }) {
     type="text/javascript"
     >
   </script>
-  <script src="/${ repoName ? repoName : 'dist' }/bundle.js"></script>
+  <script src="/${ repoName ? '' : 'dist/' }bundle.js"></script>
 </body>
 </html>
   `;
