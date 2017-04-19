@@ -1,5 +1,7 @@
 # Berkeley's magical Spectacle boilerplate
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/BerkeleyTrue/intro-to-redux.svg)](https://greenkeeper.io/)
+
 ## How to dev
 
 ```bash
